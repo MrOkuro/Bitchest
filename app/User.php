@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','admin'
     ];
 
     /**
@@ -26,4 +26,20 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function wallet(){
+        return $this->belongsTo('App\Wallet');
+    }
+
+    public function transaction(){
+        return $this->belongsTo('App\Transaction');
+    }
+
+    public function isAdmin(){
+        if($this->admin == 1){
+            return true;
+        }
+        return false;
+    }
 }
