@@ -13,7 +13,21 @@ class AddTablesTransactions extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('transactions', function (Blueprint $table){
+            $table->increments('id');
+            $table->integer('user_id');
+            $table->integer('crypto_id');
+            $table->float('montant');
+            $table->float('montant_crypto');
+            $table->string('type');
+            $table->integer('etat');
+            $table->timestamps();
+        });
+
+        Schema::table('transactions', function (Blueprint $table) {
+            $table->foreign('crypto_id')->references('id')->on('cryptos'); 
+            $table->foreign('user_id')->references('id')->on('users');           
+        });
     }
 
     /**
@@ -23,6 +37,6 @@ class AddTablesTransactions extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('transactions');
     }
 }

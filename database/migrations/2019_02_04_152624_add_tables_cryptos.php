@@ -13,7 +13,12 @@ class AddTablesCryptos extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('cryptos', function (Blueprint $table){
+            $table->increments('id');
+            $table->string('nom');
+            $table->string('image');
+            $table->string('sigle');
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class AddTablesCryptos extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('cryptos');
     }
 }
