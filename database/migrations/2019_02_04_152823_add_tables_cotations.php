@@ -15,7 +15,7 @@ class AddTablesCotations extends Migration
     {
         Schema::create('cotations', function (Blueprint $table){
             $table->increments('id');
-            $table->integer('cryto_id')->nullable();
+            $table->integer('crypto_id')->nullable();
             $table->float('valeur')->nullable();
             $table->double('cours')->nullable();
             $table->float('evolution')->nullable();
@@ -23,7 +23,7 @@ class AddTablesCotations extends Migration
         });
         
         Schema::table('cotations', function (Blueprint $table) {
-            $table->foreign('cryto_id')->references('id')->on('cryptos');           
+            $table->foreign('crypto_id')->references('id')->on('cryptos');           
         });
     }
 
