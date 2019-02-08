@@ -18,7 +18,7 @@ class AddTablesTransactions extends Migration
             $table->integer('user_id');
             $table->integer('crypto_id');
             $table->float('montant');
-            $table->float('montant_crypto');
+            $table->integer('quantite_crypto');
             $table->string('type');
             $table->integer('etat');
             $table->timestamps();

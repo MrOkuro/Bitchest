@@ -28,10 +28,28 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                    <!-- Branding Image -->                   
+                    @if(Auth::id() > 0 && Auth::user()->admin > 0)
+                    
+                        <a class="navbar-brand" href="{{  route('admin.index') }}">
+                            <img src="{{URL('/images', 'bitchest_logo.png')}}" style="width:100px;height:50px";>                       
+                        </a>
+                    
+                    @elseif(Auth::id() > 0 && Auth::user()->admin < 1)
+                    
+                        <a class="navbar-brand" href="{{  route('user.index') }}">
+                            <img src="{{URL('/images', 'bitchest_logo.png')}}" style="width:100px;height:50px";>
+                      
+                        </a>
+                    
+                    @else
+                    
+                        <a class="navbar-brand" href="{{ url('/login') }}">
+                        <img src="{{URL('/images', 'bitchest_logo.png')}}" style="width:100px;height:50px";>
+                       <!-- {{ config('app.name', 'Laravel') }} -->
                     </a>
+                    
+                    @endif
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
