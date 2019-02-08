@@ -13,11 +13,11 @@ class Crypto extends Model
 
     public function cotation() 
 	{
-		return $this->belongsTo('App\Cotation');
+		return $this->hasMany('App\Cotation');
     }
 
     public function transaction() 
 	{
-		return $this->belongsTo('App\Transaction');
+		return $this->hasMany('App\Transaction');
     }
 }

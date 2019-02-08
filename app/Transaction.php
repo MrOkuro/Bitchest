@@ -12,11 +12,11 @@ class Transaction extends Model
 
     public function user() 
 	{
-		return $this->hasOne('App\User');
+		return $this->belongsTo('App\User');
     }
 
     public function crypto() 
 	{
-		return $this->hasOne('App\Crypto');
+		return $this->belongsTo('App\Crypto');
     }
 }
