@@ -13,6 +13,6 @@ class Cotation extends Model
 
     public function crypto() 
 	{
-		return $this->hasOne('App\Crypto');
+		return $this->belongsTo('App\Crypto');
     }
 }

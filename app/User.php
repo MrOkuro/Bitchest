@@ -27,13 +27,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-
-    public function wallet(){
-        return $this->belongsTo('App\Wallet');
-    }
-
     public function transaction(){
-        return $this->belongsTo('App\Transaction');
+        return $this->hasMany('App\Transaction');
     }
 
     public function isAdmin(){
