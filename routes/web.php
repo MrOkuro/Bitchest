@@ -24,21 +24,19 @@ $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
 
-
-$this->post('logout', 'Auth\LoginController@logout')->name('logout');
-
-/*
-Route::get('/', function () {
-    return view('welcome');
-});
-*/
-
-
 Route::get('/', function () {
     return view('layouts.default');
     });
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::middleware(['auth'])->group(function () {
+$this->post('logout', 'Auth\LoginController@logout')->name('logout');
+
+
+
+
+Route::get('/homeconnexion', 'HomeController@index')->name('home');
 
 
 //Route Admin pour dashbord
@@ -56,10 +54,16 @@ Route::get('/admin/crypto/liste', 'Admin\CryptoController@index')->name('admin.c
 Route::get('/client', 'UserController@index')->name('user.index');
 Route::get('/client/edit/{id}', 'UserController@edit')->name('user.edit');
 Route::get('/client/update/{id}', 'UserController@update')->name('user.update');
-Route::get('/client/wallet/{id}', 'WalletController@show')->name('user.wallet.show');
+//Route::get('/client/wallet/{id}', 'WalletController@show')->name('user.wallet.show');
 
-Route::get('/client/crypto/liste', 'CryptoController@index')->name('user.crypto.index');
-Route::get('/client/crypto/show{id}', 'CryptoController@show')->name('user.crypto.show');
-Route::get('/client/crypto/achat', 'CryptoController@achat')->name('user.crypto.achat');
-Route::get('/client/crypto/vente', 'CryptoController@vente')->name('user.crypto.vente');
+Route::get('/client/liste/crypto', 'CryptoController@index')->name('user.crypto.index');
+Route::get('/client/crypto/show/{id}/transaction', 'TransactionController@show')->name('user.transaction.show');
+Route::get('/client/crypto/achat', 'AchatController@index')->name('user.crypto.achat');
+Route::get('/client/crypto/vente', 'VenteController@index')->name('user.crypto.vente');
 
+Route::get('/client/liste/crypto/cotations', 'CryptoController@index_cotations')->name('user.crypto.cotation.index');
+
+Route::get('/client/crypto/show/{id}/cotations', 'CotationController@show')->name('user.cotation.show');
+
+
+});
