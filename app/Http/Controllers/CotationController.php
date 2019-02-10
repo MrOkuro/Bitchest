@@ -20,6 +20,6 @@ class CotationController extends Controller
     {
         $cotations = Cotation::where('crypto_id','=',$crypto_id)->with(['crypto'])->get();
         $cryptos = Crypto::find($crypto_id);
-        return view('crypto.show_liste_transaction',compact('cryptos','cotations'));
+        return view('crypto.show_historique_cotation',compact('cryptos','cotations'));
     }
 }

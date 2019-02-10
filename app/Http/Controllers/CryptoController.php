@@ -12,7 +12,8 @@ class CryptoController extends Controller
 {
     public function index()
     {
-        $cryptos = Crypto::all();        
+        $cryptos = Crypto::all();
+        //dd ($cryptos);        
     	return view('crypto.index',compact('cryptos'));
     }
 
@@ -21,6 +22,7 @@ class CryptoController extends Controller
     public function index_cotations()
     {
         $cryptos = Crypto::all(); 
+        //dd ($cryptos);
         //$cotations = Cotation::where('crypto_id','=',$crypto_id)->with(['cotation'])->get();       
     	return view('crypto.cotation',compact('cryptos'));
     }
