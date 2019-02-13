@@ -7,36 +7,59 @@
     <div class="row">
     @include('clients.partials.sidenav')
 
-        <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Achat de nouvelles cryptommonaies</div>
+                    <div class="panel-heading">Faire un nouvel achat de cryptomonnaie</div>
 
-                    <table class="table table-bordered table-hover table-sm">
-                        <thead class="thead-dark">
-                                <tr>
-                                    <th scope="col" class="col-auto small">@lang('Logo')</th>
-                                    <th scope="col" class="col-auto small">@lang('Nom')</th>
-                                    <th scope="col" class="col-auto small">@lang('Sigle')</th> 
-                                    <th scope="col" class="col-auto small">@lang('')</th>                                          
-                                </tr>
-                            <tbody>
-                                @foreach ($cryptos as $crypto)  
+                    <form class="form-horizontal" method="POST" action="{{ route('admin.users.store') }}">
+                            {{ csrf_field() }}
 
-                                <tr>
-                                    <td> <img src="{{URL::asset('/images')}}/{{ $crypto->image }}"> </td>
-                                    <td>{{ $crypto->nom }}</td>
-                                    <td>{{ $crypto->sigle }}</td>
-                                    <td></td>
-                                </tr>
-                                @endforeach
-                            </tbody>                
-                        </thead>
-                    </table> 
-                    
-                        </div>
+
+                    <div class="form-row form-group">
+         
+            <div class="col-md-3">
+            <label for="crypto_id" class="control-label font-weight-bold">@lang('Crypto')</label>
+                            <select id="crypto_id" class="form-control" name="crypto_id" >
+                                <option value=""> Liste état </option>
+                                
+                                    @foreach ($cryptos as $crypto)
+                                        <option value="{{ $crypto->id}}"> {{ $crypto->nom}} </option>
+                                    @endforeach 
+                            </select>                           
+            </div>
+
+            <div class="form-group col-md-3">
+                            <label for="bitcoin" class="control-label font-weight-bold">@lang('Nombre bitcoin')</label>
+                            <input id="bitcoin" type="text" class="form-control " name="bitcoin" value="" placeholder="" autofocus>
+                    </div>
+                        
+    
+                
+                    <div class="col-md-3">
+                            <label for="Somme" class="control-label font-weight-bold">@lang('Somme')</label>
+                            <input id="Somme" type="text" class="form-control " name="Somme" value="" placeholder="" autofocus>
+                    </div>
+
+                    <div class="col-md-3">
+                            <label for="taux" class="control-label font-weight-bold">@lang('Taux Actuel')</label>
+                            <input id="taux" type="text" class="form-control " name="taux" value="" placeholder="" autofocus>
+                    </div>
+
+
+        </div>
+            
+      <div class="form-group">
+            <div class="col-md-8 col-md-offset-4">
+                <button type="submit" class="btn btn-primary">
+                    @lang('Créer achat')
+                </button>
+                <a class="btn btn-primary" href="{{ url()->previous()}}" role="button">@lang('Annuler')</a>
+            </div>
+        </div>
+    </form>
                     </div>
                 </div>
-        </div>
+
     </div>
 </div>
 @endsection
