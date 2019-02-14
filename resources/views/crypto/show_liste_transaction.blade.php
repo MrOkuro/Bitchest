@@ -18,7 +18,7 @@
                                     <th scope="col" class="col-auto small">@lang('Nom')</th>
                                     <th scope="col" class="col-auto small">@lang('Montant')</th>
                                     <th scope="col" class="col-auto small">@lang('Quantité')</th>
-                                    <th scope="col" class="col-auto small">@lang('Achat')</th>
+                                    
                                     <th scope="col" class="col-auto small">@lang('Date achat')</th>
 
                                 </tr>
@@ -28,8 +28,7 @@
                                     <td> <img src="{{URL::asset('/images')}}/{{ $transaction->crypto->image }}"> </td>
                                     <td>{{ $transaction->crypto->nom }}</td>
                                     <td>{{ $transaction->montant }}</td>
-                                    <td>{{ $transaction->quantite_crypto }}</td>
-                                    <td> {{ $transaction->type }} </td>
+                                    <td>{{ $transaction->quantite_crypto }}</td>                                    
                                     <td> {{ \Carbon\Carbon::parse($transaction->created_at)->format('d/m/Y') }} </td>
                                 </tr>
                             @endforeach   

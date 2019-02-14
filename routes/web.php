@@ -57,7 +57,10 @@ Route::get('/client/update/{id}', 'UserController@update')->name('user.update');
 //Route::get('/client/wallet/{id}', 'WalletController@show')->name('user.wallet.show');
 
 Route::get('/client/liste/crypto', 'CryptoController@index')->name('user.crypto.index');
+
 Route::get('/client/crypto/show/{id}/transaction', 'TransactionController@show')->name('user.transaction.show');
+Route::post('/client/crypto/transaction/achat','TransactionController@store')->name('user.transaction.achat');
+
 Route::get('/client/crypto/achat', 'AchatController@index')->name('user.crypto.achat');
 Route::get('/client/crypto/vente', 'VenteController@index')->name('user.crypto.vente');
 
