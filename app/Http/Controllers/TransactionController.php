@@ -43,5 +43,26 @@ class TransactionController extends Controller
         return redirect(url()->previous());
         
     }
+
+    public function getTotalWallet()
+    {
+        $total_wallet = 0;
+        $achats = array();
+        $transactions = Transaction::all();
+
+            if(!isset($transactions))
+            {
+                foreach ($achats as $achat) 
+                {
+                    $taux = $transactions->quantite_crypto*$achats;
+                }
+                
+            }
+            else
+            {
+                $total_wallet += $transactions->quantite_crypto*$achats->taux;
+            }
+        return view('clients.partials.sidenav');
+    }
 }
 
