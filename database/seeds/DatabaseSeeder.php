@@ -11,7 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call(CotationsTableSeeder::class);
+        $this->call(CotationsTableSeeder::class);
+        $this->call(CryptosTableSeeder::class);
 
         DB::table('users')->insert([
             'name' => 'admin',
