@@ -19,9 +19,9 @@ class AddTablesCotations extends Migration
             $table->float('valeur')->nullable();
             $table->double('cours')->nullable();
             $table->float('evolution')->nullable();
-            //$table->datetime('date')->nullable();
+            $table->datetime('date')->nullable();
             //$table->decimal('taux',5,2)->nullable();
-            $table->timestamps();
+            //$table->timestamps();
         });
         
         Schema::table('cotations', function (Blueprint $table) {

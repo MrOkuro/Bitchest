@@ -48,8 +48,9 @@ class AdminController extends Controller
     {
         if($user->update($request->input()))
         {
-             $request->session()->flash('alert', ['class'=>'success','message'=>'Profil utilisateur mis à jour']);
+            $request->session()->flash('alert', ['class'=>'success','message'=>'Profil utilisateur mis à jour']);
         }
+        //dd($request->input());
         
         return redirect(url()->previous());
     }

@@ -28,7 +28,7 @@ class CotationsTableSeeder extends Seeder
 			return ((rand(0, 99)>40) ? 1 : -1) * ((rand(0, 99)>49) ? ord(substr($cryptoname,0,1)) : ord(substr($cryptoname,-1))) * (rand(1,10) * .01);
 		}
 
-		/*
+		
 
 			$pdo = new PDO('mysql:host=localhost;dbname=bitchest', 'root', '', array(
 		    PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
@@ -65,9 +65,9 @@ class CotationsTableSeeder extends Seeder
 		        // ATTENTIION POTENTIELLEMENT A MODIFIER
 		        $pdo -> exec("insert into cotations (crypto_id, valeur, date, cours, evolution) value($crypto_id, $valeur_actuelle, '$date', $cours, $evolution )");
 		    }
-		} */
+		} 
 
-		 $cotations = Cotation::all();
+		/*$cotations = Cotation::all();
         foreach ($cotations as $cotation) {
             $firstCotation = getFirstCotation($cotation->nom_crypto);
             for ($i=0; $i < 30; $i++) {
@@ -78,6 +78,6 @@ class CotationsTableSeeder extends Seeder
                 'taux' =>  getFirstCotation($cotation->nom_crypto) + $firstCotation
                 ]));
            }
-        }
+        }*/
     }
 }
