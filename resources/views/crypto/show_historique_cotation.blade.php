@@ -9,7 +9,12 @@
 
         <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Evolution cotation de cryptomonnaie sur les 30 derniers jours</div>
+                    <div class="panel-heading">Evolution cotation de cryptomonnaie sur les 30 derniers jours
+
+                        <button type="submit" class="btn btn-primary">
+                            @lang('Afficher le graphique des cotations')
+                            </button>
+                    </div>
 
                     <table class="table table-bordered table-hover table-sm">
                         <thead class="thead-dark">
@@ -30,7 +35,7 @@
                                     <td>{{ $cotation->valeur }}</td>
                                     <td> {{ $cotation->cours }} </td>
                                     <td> {{ $cotation->evolution }} </td>
-                                    <td> {{ \Carbon\Carbon::parse($cotation->created_at)->format('d/m/Y') }} </td>
+                                    <td> {{ $cotation->date }} </td>
                                 </tr>
                             @endforeach   
                             </tbody>                

@@ -16,20 +16,23 @@
                                 <tr>
                                     <th scope="col" class="col-auto small">@lang('Logo')</th>
                                     <th scope="col" class="col-auto small">@lang('Nom')</th>
-                                    <th scope="col" class="col-auto small">@lang('Sigle')</th> 
-                                    <th scope="col" class="col-auto small">@lang('')</th>                                          
+                                    <th scope="col" class="col-auto small">@lang('Valeur')</th> 
+                                    <th scope="col" class="col-auto small">@lang('Cours')</th> 
+                                    <th scope="col" class="col-auto small">@lang('Evolution')</th> 
+                                    <th scope="col" class="col-auto small">@lang('Date')</th> 
+                                    <th scope="col" class="col-auto small">@lang('Lien')</th>                                          
                                 </tr>
                             <tbody>
-                                @foreach ($cryptos as $crypto)  
-
+                                
                                 <tr>
-                                    <td> <img src="{{URL::asset('/images')}}/{{ $crypto->image }}"> </td>
-                                    <td>{{ $crypto->nom }}</td>
-                                    <td>{{ $crypto->sigle }}</td>
-                                    <td> <a class="btn btn-sm btn-danger" href="{{ route('user.cotation.show', [$crypto->id] ) }}" 
-                                    role="button">@lang('Historique des cotations') </a> </td>
+                                    <td> <img src="{{URL::asset('/images')}}/{{ $cotations->image }}"> </td>
+                                    <td>{{ $cotations->nom }}</td>
+                                    <td>{{ $cotations->valeur }}</td>
+                                    <td> {{ $cotations->cours }} </td>
+                                    <td> {{ $cotations->evolution }} </td>
+                                    <td> {{ $cotations->date }} </td>
                                 </tr>
-                                @endforeach
+                            
                             </tbody>                
                         </thead>
                     </table> 
