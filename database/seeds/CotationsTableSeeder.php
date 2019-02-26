@@ -42,7 +42,7 @@ class CotationsTableSeeder extends Seeder
 		    $date = date('Y-m-d', time()+ (6*86400));
 
 		    // ATTENTIION POTENTIELLEMENT A MODIFIER
-		    $pdo -> exec("insert into cotations (crypto_id, valeur, date, cours, evolution) value($crypto_id, $valeur_nominale, '$date', 0.00, 0.00 )");
+			$pdo -> exec("insert into cotations (crypto_id, valeur, date, cours, evolution) value(".$crypto_id.",".$valeur_nominale.",'".$date."',". 0.00.",". 0.00 .")");
 		    $valeur[] = $valeur_nominale;
 
 		    echo '<h1>Valeur nominale : ' . $valeur_nominale .  '</h1>';
@@ -63,7 +63,7 @@ class CotationsTableSeeder extends Seeder
 		        echo 'Pourcentage : ' . $cours . '<hr/>';
 
 		        // ATTENTIION POTENTIELLEMENT A MODIFIER
-		        $pdo -> exec("insert into cotations (crypto_id, valeur, date, cours, evolution) value($crypto_id, $valeur_actuelle, '$date', $cours, $evolution )");
+		        $pdo -> exec("insert into cotations (crypto_id, valeur, date, cours, evolution) value(".$crypto_id.",".$valeur_nominale.",'".$date."',". 0.00.",". 0.00 .")");
 		    }
 		} 
 
